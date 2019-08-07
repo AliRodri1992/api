@@ -8,6 +8,7 @@ gem 'pg', '1.0.0'
 gem 'puma', '~> 3.11'
 gem 'jbuilder', '2.8.0'
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'rack-cors'
 
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
