@@ -1,1 +1,1 @@
-User.create(username: 'ali', email: 'ali.rodri.vasquez@gmail.com', names: 'Ivan Ali', paternal_surname: 'Rodriguez', maternal_surname: 'Vasquez', age: 26, active: true)
+User.create(username: 'ali', email: 'ali.rodri.vasquez@gmail.com', names: 'Ivan Ali', paternal_surname: 'Rodriguez', maternal_surname: 'Vasquez', age: 26, active: true, rol_id: 1)

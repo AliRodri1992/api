@@ -8,6 +8,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :maternal_surname
       t.integer :age
       t.boolean :active
+      t.references :rol, foreign_key: true
       t.timestamps
     end
   end
