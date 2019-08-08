@@ -15,12 +15,14 @@ module Api
       # funcion que crea un usuario
       def create
         @user = User.new(user_params)
+        @errors = @user.errors.messages
         @user.save
       end
 
       # funcion que actualiza el usuario
       def update
         @user = User.find(params[:id])
+        @errors = @user.errors.messages
         @user.update(user_params)
       end
 
@@ -31,7 +33,6 @@ module Api
       end
 
       def all_by_rol_id
-        puts "PARAMS:  #{params.to_s}"
         @users = User.where("rol_id = ?", params[:rol_id])
       end
 
