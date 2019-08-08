@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       resources :users do
         get :all_active, :on => :collection
         get :all_inactive, :on => :collection
+        get :all_by_rol_id, :on => :collection
       end
     end
   end

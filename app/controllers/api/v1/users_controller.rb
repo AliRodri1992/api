@@ -30,8 +30,9 @@ module Api
         @user.destroy
       end
 
-      def all_users_by_rol_id
-        @users = User.find_by_rol_id(params[:rol_id])
+      def all_by_rol_id
+        puts "PARAMS:  #{params.to_s}"
+        @users = User.where("rol_id = ?", params[:rol_id])
       end
 
       def all_active
