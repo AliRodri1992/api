@@ -36,6 +36,18 @@ module Api
         @users = User.where("rol_id = ?", params[:rol_id])
       end
 
+      def all_by_permission_id
+        @permission = Permission.find(params[:permission_id])
+        @users = []
+        @permission.rols.each do |rol|
+
+          rol.users.each do |user|
+            puts "Usuario: " + user.username
+            @users << user
+          end
+        end
+      end
+
       def all_active
         @users = User.where("active = ?", true)
       end
