@@ -2,29 +2,28 @@ module Api
   module V1
     class UsersController < ApplicationController
 
-      # funcion que consulta todos los users
+      # funcion que consulta todos los usuarios
       def index
-        unless @usuarios.blank?
-          @users = User.all
-        end
+        @users = User.all
       end
 
-      # funcion que consulta un user por id
+      # funcion que consulta un usuario por id
       def show
         @user = User.find(params[:id])
       end
 
-      # funcion que crea un user
+      # funcion que crea un usuario
       def create
         @user = User.new(user_params)
         @user.save
       end
 
-      # funcion que actualiza el user
+      # funcion que actualiza el usuario
       def update
         @user.update(user_params)
       end
 
+      # funcion que permite eliminar un usuario
       def destroy
         @user = User.find(params[:id])
         @user.destroy
@@ -40,7 +39,7 @@ module Api
 
       private
       def user_params
-        params.require(:user).permit(:username, :email, :names, :paternal_surname, :maternal_surname, :age, :rol_id)
+        params.require(:user).permit(:username, :email, :names, :paternal_surname, :maternal_surname, :age, :active)
       end
     end
   end
