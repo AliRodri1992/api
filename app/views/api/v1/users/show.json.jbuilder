@@ -10,6 +10,8 @@ unless @user.blank?
     json.paternal_surname @user.paternal_surname
     json.paternal_surname @user.maternal_surname
     json.age @user.age
+    json.rol @user.rol.rol
+    json.rol_id @user.rol_id
     json.active @user.active
   end
 else
