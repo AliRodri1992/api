@@ -33,8 +33,8 @@ module Api
         @users = User.find_by_rol_id(params[:rol_id])
       end
 
-      def all_users_by_active
-        @users = User.find_by_active(params[:active])
+      def all_active
+        @users = User.where("active = ?", true)
       end
 
       private
