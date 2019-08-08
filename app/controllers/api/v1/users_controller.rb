@@ -37,6 +37,10 @@ module Api
         @users = User.where("active = ?", true)
       end
 
+      def all_inactive
+        @users = User.where("active = ?", false)
+      end
+
       private
       def user_params
         params.require(:user).permit(:username, :email, :names, :paternal_surname, :maternal_surname, :age, :active)
