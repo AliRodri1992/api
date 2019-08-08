@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_08_041052) do
+ActiveRecord::Schema.define(version: 2019_08_08_041518) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "permission_rols", force: :cascade do |t|
+    t.bigint "rol_id"
+    t.bigint "permission_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["permission_id"], name: "index_permission_rols_on_permission_id"
+    t.index ["rol_id"], name: "index_permission_rols_on_rol_id"
+  end
 
   create_table "permissions", force: :cascade do |t|
     t.string "permission"
@@ -41,5 +50,7 @@ ActiveRecord::Schema.define(version: 2019_08_08_041052) do
     t.index ["rol_id"], name: "index_users_on_rol_id"
   end
 
+  add_foreign_key "permission_rols", "permissions"
+  add_foreign_key "permission_rols", "rols"
   add_foreign_key "users", "rols"
 end
